@@ -1,0 +1,71 @@
+@import '../../colours.modules.scss';
+@import '../../global.modules.scss';
+
+.App {
+  min-height: calc(100vh - 5vh);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white;
+
+  &.collapsed {
+    .content-container {
+      width: calc(100%);
+      margin-left: 40px;
+    }
+  }
+}
+
+.signout-group {
+  height: 30px;
+  align-items: center;
+  width: 100%;
+  margin-inline-end: 0px;
+  display: inline-flex;
+  margin-top: 25px;
+  justify-content: flex-end;
+}
+
+.log-btns {
+  height: 100px;
+  align-items: center;
+  width: 100%;
+  margin-inline-end: 0px;
+  display: inline-flex;
+  justify-content: space-between;
+  color: $black;
+}
+
+.userName {
+  margin: 0 25px;
+  color: $primary-color;
+  font-weight: 500;
+}
+
+.content-container {
+  flex-grow: 1;
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  transition: width 0.3s, margin-left 0.3s;
+}
+
+/* -------------------- PRINT OVERRIDES -------------------- */
+@media print {
+  .content-container {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .userName {
+    display: none;
+  }
+
+  .signout-group {
+    display: none;
+  }
+
+  .log-btns {
+    display: none;
+  }
+  
+}

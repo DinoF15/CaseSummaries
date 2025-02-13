@@ -1,0 +1,19 @@
+# Folders
+cdk.out/
+coverage/
+node_modules/
+test-results/
+
+# Files
+*.d.ts
+package-lock.json
+test-report.xml
+*stack.js
+*test.js
+*pipeline.js
+*stages.js
+package-lock.json
+test-report.xml
+!functions/*.js
+!functions/*.py
+notes.txt

@@ -1,0 +1,22 @@
+@import '../../colours.modules.scss';
+
+
+.button-is-primary {
+  background-color: $white;
+  border: 2px solid $nav-background;
+  color: $primary-color;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  margin: 0px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.main-logout {
+  display: block;
+}

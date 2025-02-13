@@ -1,0 +1,83 @@
+@import '../../colours.modules.scss';
+@import '../../global.modules.scss';
+
+.formContainerSm {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid $border-gray;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: $white;
+}
+
+.caption {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  color: $primary-color;
+}
+
+.createProjectForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary-color;
+  margin-bottom: 5px;
+}
+
+.formControl {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid $light-gray;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.formControl:focus {
+  border-color: $primary-color;
+  outline: none;
+}
+
+.formBtn {
+  padding: 10px 20px;
+  background-color: $primary-color;
+  color: $white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.formBtn:hover {
+  background-color: darken($primary-color, 10%);
+}
+
+.feedbackSuccess {
+  color: green;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.feedbackFail {
+  color: red;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+}

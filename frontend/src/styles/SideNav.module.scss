@@ -1,0 +1,628 @@
+@import '../../colours.modules.scss';
+
+$font-family: 'Montserrat', sans-serif;
+$font-size: 0.9375rem;
+$transition-time: 0.3s;
+
+// Modern Variables
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$gradient-primary: linear-gradient(135deg, $primary-color, darken($primary-color, 15%));
+$gradient-accent: linear-gradient(135deg, $orange, darken($orange, 15%));
+
+/* -------------------- NAVIGATION -------------------- */
+.navSide {
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  z-index: 1;
+  top: 0;  /* Adjusted to start from top */
+  left: 0;
+  overflow-x: hidden;
+  transition: $transition-time;
+  font-family: $font-family;
+  white-space: nowrap;
+  line-height: 25px;
+  background-color: $nav-background;
+
+  a {
+    padding: 20px 8px 8px 32px;
+    text-decoration: none;
+    font-family: $font-family;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $white;
+    display: block;
+    transition: $transition-time;
+    background-color: $nav-background;
+
+    &:hover {
+      color: #f1f1f1;
+      background-color: $nav-background;
+    }
+  }
+
+  &.collapsed {
+    width: 0px;
+
+    a {
+      padding: 8px 8px 8px 16px;
+      font-size: 0; /* Hide the text */
+    }
+
+    .logoContainer {
+      width: 60px;
+      height: 60px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media print {
+    display: none !important;
+  }
+}
+
+.logoContainer {
+  width: 240px;
+  height: 100px;
+  background-color: $nav-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-time;
+}
+
+.dropdown-btn {
+  margin-top: 40px;
+}
+
+.dropdown-btn,
+.dropdown-btn-2 {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: 500;
+  color: $white;
+  display: block;
+  border: none;
+  background-color: $nav-background;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+
+  &.collapsed {
+    padding: 8px 8px 8px 16px;
+    font-size: 0; /* Hide the text */
+  }
+}
+
+.fa-caret-down,
+.fa-caret-left {
+  float: right;
+  padding-right: 8px;
+
+  &.collapsed {
+    display: none;
+  }
+}
+
+.dropdown-container {
+  padding-left: 8px;
+
+  &.collapsed {
+    padding-left: 0;
+  }
+}
+
+.show-dropdown {
+  display: block;
+}
+
+.hide-dropdown {
+  display: none;
+}
+
+.active {
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+.collapseButton {
+  position: fixed;
+  top: 0px;
+  left: 240px; /* Positioned to the right of the nav */
+  background-color: $orange;
+  color: $white;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-family: $font-family;
+  font-size: $font-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: left $transition-time;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+
+  &.collapsedButton {
+    left: 0px; /* Positioned to the left when nav is collapsed */
+  }
+
+  @media print {
+    display: none !important;
+  }
+}
+
+/* -------------------- MAIN CONTENT -------------------- */
+.mainContainer {
+  padding: 2rem;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  border-radius: 16px;
+  box-shadow: $shadow-lg;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media print {
+    padding: 0.5rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+  }
+}
+
+.reportTitle {
+  font-size: 2.5rem;
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  font-weight: 700;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: flex-end; // Aligns buttons to the right
+  gap: 12px;
+  
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all $transition-time ease;
+    box-shadow: $shadow-sm;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+
+    &.exportWordButton {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+    }
+
+    &.exportPDFButton {
+      background: linear-gradient(135deg, #f50b55, #d90626);
+      color: white;
+    }
+
+    &.editButton {
+      background: linear-gradient(135deg, #059669, #047857);
+      color: white;
+    }
+  }
+}
+
+.overviewCards {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); // Seven columns for the seven cards
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: $shadow-sm;
+  transition: all $transition-time ease;
+  border: 1px solid rgba($primary-color, 0.1);
+  min-width: 0;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .label {
+    font-size: 0.875rem;
+    color: rgba($primary-color, 0.7);
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .value {
+    font-size: 1rem;
+    color: $primary-color;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 1200px) {
+    .overviewCards {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .overviewCards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .overviewCards {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+
+  h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: rgba($primary-color, 0.7);
+    font-weight: 500;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.25rem;
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
+
+.section {
+  margin-bottom: 2.5rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: $shadow-sm;
+
+  h2 {
+    font-size: 1.5rem;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba($primary-color, 0.1);
+    font-weight: 600;
+  }
+}
+
+.infoTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+
+  th,
+  td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+  }
+
+  th {
+    background: $gradient-primary;
+    color: white;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  td {
+    background: white;
+    border-bottom: 1px solid rgba($primary-color, 0.1);
+    line-height: 1.6;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background-color: rgba($primary-color, 0.02);
+  }
+}
+
+.teamContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+
+  .teamCard {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: $shadow-sm;
+    transition: all $transition-time ease;
+    border: 1px solid rgba($primary-color, 0.1);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-md;
+    }
+
+    h3 {
+      margin: 0 0 0.5rem 0;
+      color: $primary-color;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+      color: rgba($primary-color, 0.8);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  }
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  .tag {
+    background: rgba($primary-color, 0.1);
+    color: $primary-color;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all $transition-time ease;
+
+    &:hover {
+      background: rgba($primary-color, 0.15);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.imagesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+
+  .imageWrapper {
+    cursor: pointer;
+    transition: all $transition-time ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: $shadow-sm;
+    }
+
+    p {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: rgba($primary-color, 0.8);
+      text-align: center;
+    }
+  }
+}
+
+/* -------------------- PRINT STYLES -------------------- */
+@media print {
+  /* Hide navigation and related elements */
+  .navSide,
+  .collapseButton,
+  .logoContainer,
+  .actionButtons,
+  .backButton {
+    display: none !important;
+  }
+
+  /* Remove any extra margins/padding from global containers if needed */
+  .content-container {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Make the main container cover the entire page */
+  .mainContainer {
+    padding: 0.5rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+  }
+
+  /* Force all major containers to 100% width */
+  .overviewCards,
+  .section,
+  .infoTable,
+  .teamContainer,
+  .tagsContainer,
+  .imagesContainer {
+    width: 100% !important;
+  }
+
+  /* Overview cards become a single column */
+  .overviewCards {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    margin: 1rem 0 2rem 0 !important;
+  }
+
+  .card {
+    width: 100% !important;
+    border: 1px solid $primary-color !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    padding: 0.75rem !important;
+
+    h3 {
+      font-size: 10pt !important;
+      margin-bottom: 0.25rem !important;
+      color: darken($primary-color, 10%) !important;
+    }
+
+    p {
+      font-size: 11pt !important;
+      color: $primary-color !important;
+      margin: 0 !important;
+    }
+  }
+
+  .section {
+    margin: 0 0 1.5rem 0 !important;
+    padding: 0.5rem !important;
+    background: #f0f0f0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+
+    h2 {
+      font-size: 14pt !important;
+      color: $primary-color !important;
+      margin-bottom: 0.75rem !important;
+      border-bottom: 1px solid $primary-color !important;
+      padding-bottom: 0.5rem !important;
+    }
+  }
+
+  .infoTable {
+    width: 100% !important;
+    margin: 0.75rem 0 !important;
+    border-collapse: collapse !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    th {
+      background: lighten($primary-color, 40%) !important;
+      color: $primary-color !important;
+      font-weight: 600 !important;
+      font-size: 10pt !important;
+      padding: 6pt !important;
+      text-align: left !important;
+      border: 1px solid $primary-color !important;
+    }
+
+    td {
+      font-size: 10pt !important;
+      padding: 6pt !important;
+      border: 1px solid $primary-color !important;
+      color: $primary-color !important;
+      background: white !important;
+    }
+  }
+
+  .teamContainer {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .teamCard {
+    border: 1px solid $primary-color !important;
+    box-shadow: none !important;
+    background: white !important;
+    padding: 0.75rem !important;
+
+    h3 {
+      color: $primary-color !important;
+      font-size: 11pt !important;
+      margin-bottom: 0.25rem !important;
+    }
+
+    p {
+      color: #333 !important;
+      font-size: 10pt !important;
+    }
+  }
+
+  .tagsContainer {
+    margin: 0.75rem 0 !important;
+    gap: 0.5rem !important;
+  }
+
+  .tag {
+    border: 1px solid $primary-color !important;
+    background: lighten($primary-color, 50%) !important;
+    color: $primary-color !important;
+    padding: 0.25rem 0.75rem !important;
+    font-size: 9pt !important;
+  }
+
+  .imagesContainer {
+    grid-template-columns: 1fr !important; // One image per row (100% width)
+    gap: 0.75rem !important;
+  }
+
+  .imageWrapper {
+    text-align: center;
+
+    img {
+      border: 1px solid $primary-color !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    p {
+      font-size: 9pt !important;
+      margin-top: 0.25rem !important;
+      color: $primary-color !important;
+    }
+  }
+
+  .mainContainer {
+    font-family: "Times New Roman", Times, serif !important;
+    line-height: 1.4 !important;
+    color: $primary-color !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+    size: A4;
+  }
+}

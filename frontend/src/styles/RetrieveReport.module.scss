@@ -1,0 +1,152 @@
+@import '../../colours.modules.scss';
+
+.mainContainer {
+  padding: 30px;
+  background-color: $white;
+  min-height: 100vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.header {
+  color: $primary-color;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.searchBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.searchInput {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid $light-gray;
+  border-radius: 6px;
+  font-size: 16px;
+
+  &:focus {
+    border-color: $light-blue;
+    outline: none;
+  }
+}
+
+.filterContainer {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-left: auto; // pushes filters to the right side
+}
+
+.filterDropdown {
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid $light-gray;
+  border-radius: 6px;
+  background-color: $white;
+
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+}
+
+.clearFilterButton {
+  padding: 8px 12px;
+  border: none;
+  background-color: $primary-color;
+  color: $white;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 5%);
+  }
+}
+
+.reportTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.reportTable th,
+.reportTable td {
+  border: 1px solid $border-gray;
+  padding: 12px;
+  text-align: left;
+}
+
+.reportTable th {
+  background-color: $nav-background;
+  color: $white;
+  font-size: 18px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.viewButton,
+.editButton,
+.deleteButton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.viewButton {
+  background-color: $light-blue;
+  color: $white;
+}
+
+.editButton {
+  background-color: $orange;
+  color: $white;
+}
+
+.deleteButton {
+  background-color: $alert-color;
+  color: $white;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  margin-top: 20px;
+
+  button {
+    padding: 6px 12px;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:disabled {
+      background-color: lighten($primary-color, 20%);
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: darken($primary-color, 5%);
+    }
+  }
+
+  span {
+    font-size: 16px;
+    color: $primary-color;
+  }
+}

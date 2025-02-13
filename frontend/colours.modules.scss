@@ -1,0 +1,37 @@
+/*
+  This file defines the updated core colors for the application, now aligned with 's style.
+  Includes prominent use of gray/black for navigation and other key areas.
+*/
+
+// Core colors
+$primary-color: #211F20; //  Orange for buttons, highlights
+$orange: #FFA500; // Bright orange for alerts or highlights
+$secondary-color: #3D0615; //  Dark Red for section backgrounds, active states
+$high-priority-color: #FF6347; // Tomato red for high-priority alerts
+$danger-button: #CC0000; // Dark red for danger actions
+
+// Gray/Black for Nav and Sectioning
+$nav-background: #211F20; // Dark gray/black for navigation background
+$nav-text-color: #FFFFFF; // White text for contrast in the nav
+$dark-gray: #4D4C50; // Text or subtle section backgrounds
+$medium-gray: #5A5A5A; // Used for headers or light dividers
+$border-gray: #DDDDDD; // Gray borders for neutral separations
+$light-gray: #D3D3D3; // Lighter gray for disabled states or background elements
+$transparent-gray: rgba(0, 0, 0, 0.2); // Transparent gray overlays
+
+// Supporting colors
+$green: #4CAF50; // Success indicators or cancel actions
+$gold: #FFD700; // Gold accents when needed
+$white: #FFFFFF; // Main background or text
+$light-blue: #007BFF; // Optional hover or link highlights
+$red: #FF0000; // Error or warning highlights
+$black: #000000; // Pure black for text or sharp contrasts
+
+// Button-specific colors
+$cancel-color: #5CB85C; // Green cancel button
+$alert-color: #D9534F; // Red alert messages
+$secondary-color-transparent: rgba($secondary-color, 0.25); // Semi-transparent dark red
+
+// Font size
+$primary-font-size: 30px; // Standard font size for headings
+

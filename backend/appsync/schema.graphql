@@ -1,0 +1,290 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+#input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    preferred_username: String!
+    registration_code: String!
+    group: String!
+}
+
+input UserInput {
+    id: ID
+    username: String!
+    email: String!
+    preferred_username: String!
+    registration_code: String!
+    group: String!
+    createdAt: String
+    updatedAt: String
+}
+
+input UpdateUserInput {
+    id: ID
+    username: String
+    email: String
+    preferred_username: String
+    registration_code: String
+    group: String
+    createdAt: String
+    updatedAt: String
+}
+
+type SignUpCode @aws_api_key @aws_cognito_user_pools {
+    id: ID!
+    SignUpGroup: String
+    CurrentlyAvailableCodes: [String]
+    AssignedCodes: [String]
+    createdAt: String!
+    updatedAt: String!
+}
+
+input SignUpCodeInput {
+    id: ID
+    SignUpGroup: String
+    CurrentlyAvailableCodes: [String]
+    AssignedCodes: [String]
+    createdAt: String
+    updatedAt: String
+}
+
+input UpdateSignUpCodeInput {
+    id: ID
+    SignUpGroup: String
+    CurrentlyAvailableCodes: [String]
+    AssignedCodes: [String]
+    createdAt: String
+    updatedAt: String
+}
+
+type Report {
+    id: ID!
+    projectTitle: String!
+    projectType: String!
+    industrialPartner: String!
+    startDate: String!
+    projectContact: String
+    endDate: String
+    duration: String
+    partnerCash: String
+    partnerInKind: String
+    funding: String
+    sourceFunding: String
+    inlineSummary: String
+    briefSummary: String
+    opportunity: String
+    problem: String
+    intervention: String
+    results: String
+    projectId: String
+    goToMarket: String
+    increaseRevenue: String
+    decreaseCosts: String
+    hireEmployees: String
+    registerNewIntellectualProperty: String
+    export: String
+    secureInvestment: String
+    increaseServices: String
+    changeStrategy: String
+    improvedProductService: String
+    other: String
+    newExpertise: String
+    studentsHired: String
+    referral: String
+    presentResults: String
+    mediaCoverage: String
+    team: [TeamMember]
+    tags: [String]
+    internalDetails: String
+    partnerType: String
+    updatedAt: String
+    updatedBy: String
+}
+
+type TeamMember {
+    name: String
+    expertise: String
+}
+
+input TeamMemberInput {
+    name: String
+    expertise: String
+}
+
+input ReportInput {
+    id: ID
+    projectType: String!
+    projectTitle: String!
+    projectContact: String
+    industrialPartner: String!
+    startDate: String!
+    endDate: String
+    duration: String
+    partnerCash: String
+    partnerInKind: String
+    funding: String
+    sourceFunding: String
+    inlineSummary: String
+    briefSummary: String
+    opportunity: String
+    problem: String
+    intervention: String
+    results: String
+    projectId: String
+    goToMarket: String
+    increaseRevenue: String
+    decreaseCosts: String
+    hireEmployees: String
+    registerNewIntellectualProperty: String
+    export: String
+    secureInvestment: String
+    increaseServices: String
+    changeStrategy: String
+    improvedProductService: String
+    other: String
+    newExpertise: String
+    studentsHired: String
+    referral: String
+    presentResults: String
+    mediaCoverage: String
+    team: [TeamMemberInput]
+    tags: [String]
+    internalDetails: String
+    partnerType: String
+    updatedAt: String
+    updatedBy: String
+}
+type presignedUrlResponse {
+    url: String!
+    key: String!
+}
+
+
+type TagList {
+  id: ID!
+  tagName: String!
+  createdAt: String
+  updatedAt: String
+}
+
+input TagListInput {
+  id: ID
+  tagName: String!
+  createdAt: String
+  updatedAt: String
+}
+
+input UpdateTagListInput {
+  id: ID!
+  tagName: String
+  createdAt: String
+  updatedAt: String
+}
+
+type StaffList {
+  id: ID!
+  name: String!
+  createdAt: String
+  updatedAt: String
+}
+
+input StaffListInput {
+  id: ID
+  name: String!
+  createdAt: String
+  updatedAt: String
+}
+
+input UpdateStaffListInput {
+  id: ID!
+  name: String
+  createdAt: String
+  updatedAt: String
+}
+
+type ClaudeResponse {
+  userQuery: String
+  bedrock_context: String
+  data_context: String  
+  error: String         
+}
+
+type Query {
+    getUser(id: ID!): User
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    listUsersByGroup(group: String!): [User]
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    listUser: [User]
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    getSignUpCode(id: ID!): SignUpCode
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    listSignUpCodes: [SignUpCode]
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    getReport(id: ID!): Report
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    listReports: [Report]
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    listReportsByUser(username: String!): [Report]
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    getImage(projectName: String!): [String]
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    getTagList(id: ID!): TagList
+    @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    listTagList: [TagList]
+    @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+  
+  getStaffList(id: ID!): StaffList
+    @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+  listStaffList: [StaffList]
+    @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+}
+
+type Mutation {
+    createUser(dbItem: UserInput!): User
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    updateUser(dbItem: UpdateUserInput!): User
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    deleteUser(id: ID!): ID
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    createSignUpCode(dbItem: SignUpCodeInput!): SignUpCode
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    updateSignUpCode(dbItem: UpdateSignUpCodeInput!): SignUpCode
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    deleteSignUpCode(id: ID!): ID
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    createReport(dbItem: ReportInput!): Report
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    updateReport(dbItem: ReportInput!): Report
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    deleteReport(id: ID!): ID
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    getPresignedUrl(key: [String!]!): [presignedUrlResponse]
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    createImage(projectName: String!, imageData: [String!]!, imageNames: [String!]!): [String]
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    removeImage(projectName: String!, imageName: String!): String
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    createTagList(dbItem: TagListInput!): TagList
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    updateTagList(dbItem: UpdateTagListInput!): TagList
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    deleteTagList(id: ID!): ID
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+
+    createStaffList(dbItem: StaffListInput!): StaffList
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    updateStaffList(dbItem: UpdateStaffListInput!): StaffList
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    deleteStaffList(id: ID!): ID
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+    invokeClaudeAnalysis(userQuery: String!): ClaudeResponse
+        @aws_cognito_user_pools(cognito_groups: ["Admin", "Supervisor", "Operator", "Guest"])
+}

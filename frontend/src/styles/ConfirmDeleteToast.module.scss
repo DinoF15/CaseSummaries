@@ -1,0 +1,67 @@
+/* src/components/toast/ConfirmDeleteToast.module.scss */
+@import '../../colours.modules.scss';
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.toastContainer {
+  background-color: $nav-text-color; // from your colours.modules.scss ($white: #FFFFFF)
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 2rem;
+  color: $high-priority-color; // e.g. tomato red (#FF6347)
+}
+
+.message {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.confirmButton {
+  padding: 10px 20px;
+  background-color: $high-priority-color; // Use your alert colour
+  color: $nav-text-color;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancelButton {
+  padding: 10px 20px;
+  background-color: $light-gray;
+  color: $black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

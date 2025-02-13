@@ -1,0 +1,280 @@
+{
+    "ddbTables":[
+       {
+          "tableName":"userTable",
+          "streamViewType":"NEW_AND_OLD_IMAGES",
+          "category":"user",
+          "apiOperations":[
+             {
+                "fieldName":"getUser",
+                "apiReqType":"GET",
+                "graphqlOpType":"Query"
+             },
+             {
+                "fieldName":"listUser",
+                "apiReqType":"LIST",
+                "graphqlOpType":"Query"
+             },
+             {
+                "fieldName":"createUser",
+                "apiReqType":"CREATE",
+                "graphqlOpType":"Mutation"
+             },
+             {
+                "fieldName":"updateUser",
+                "apiReqType":"UPDATE",
+                "graphqlOpType":"Mutation"
+             },
+             {
+                "fieldName":"deleteUser",
+                "apiReqType":"DELETE",
+                "graphqlOpType":"Mutation"
+             },
+             {
+                "fieldName":"listUsersByGroup",
+                "apiReqType":"CUSTOM",
+                "graphqlOpType":"Query",
+                "customType":"LIST_USERS_BY_GROUP"
+             }
+          ]
+       },
+       {
+          "tableName":"signUpCodesTable",
+          "category":"signUpCodes",
+          "streamViewType":"NEW_AND_OLD_IMAGES",
+          "apiOperations":[
+             {
+                "fieldName":"getSignUpCode",
+                "apiReqType":"GET",
+                "graphqlOpType":"Query"
+             },
+             {
+                "fieldName":"listSignUpCodes",
+                "apiReqType":"LIST",
+                "graphqlOpType":"Query"
+             },
+             {
+                "fieldName":"createSignUpCode",
+                "apiReqType":"CREATE",
+                "graphqlOpType":"Mutation"
+             },
+             {
+                "fieldName":"updateSignUpCode",
+                "apiReqType":"UPDATE",
+                "graphqlOpType":"Mutation"
+             },
+             {
+                "fieldName":"deleteSignUpCode",
+                "apiReqType":"DELETE",
+                "graphqlOpType":"Mutation"
+             }
+          ]
+       },
+       {
+            "tableName":"ReportsTable",
+            "category":"reports",
+            "streamViewType":"NEW_AND_OLD_IMAGES",
+            "apiOperations":[
+               {
+                  "fieldName":"getReport",
+                  "apiReqType":"GET",
+                  "graphqlOpType":"Query"
+               },
+               {
+                  "fieldName":"listReports",
+                  "apiReqType":"LIST",
+                  "graphqlOpType":"Query"
+               },
+               {
+                  "fieldName":"createReport",
+                  "apiReqType":"CREATE",
+                  "graphqlOpType":"Mutation",
+                  "customType":"CREATE_REPORT"
+               },
+               {
+                  "fieldName":"updateReport",
+                  "apiReqType":"UPDATE",
+                  "graphqlOpType":"Mutation"
+               },
+               {
+                  "fieldName":"deleteReport",
+                  "apiReqType":"DELETE",
+                  "graphqlOpType":"Mutation"
+               },
+               {
+                  "fieldName":"listReportsByUser",
+                  "apiReqType":"CUSTOM",
+                  "graphqlOpType":"Query",
+                  "customType":"LIST_REPORTS_BY_USER"
+               },
+               {
+                  "fieldName":"getPresignedUrl",
+                  "apiReqType":"CUSTOM",
+                  "graphqlOpType":"Mutation",
+                  "customType":"GENERATE_PRESIGNED_URL"
+               },
+               {
+                  "fieldName":"createImage", 
+                  "apiReqType":"CUSTOM",
+                  "graphqlOpType":"Mutation",
+                  "customType":"CREATE_IMAGE"
+               },
+               {
+                  "fieldName":"removeImage",
+                  "apiReqType":"CUSTOM",
+                  "graphqlOpType":"Mutation",
+                  "customType":"REMOVE_IMAGE"
+               },
+               {
+                  "fieldName":"getImage",
+                  "apiReqType":"CUSTOM",
+                  "graphqlOpType":"Query",
+                  "customType":"GET_IMAGE"
+               }
+
+
+            ]
+       },   {
+         "tableName": "tagListTable",
+         "streamViewType": "NEW_AND_OLD_IMAGES",
+         "category": "tagList",
+         "apiOperations": [
+           {
+             "fieldName": "getTagList",
+             "apiReqType": "GET",
+             "graphqlOpType": "Query"
+           },
+           {
+             "fieldName": "listTagList",
+             "apiReqType": "LIST",
+             "graphqlOpType": "Query"
+           },
+           {
+             "fieldName": "createTagList",
+             "apiReqType": "CREATE",
+             "graphqlOpType": "Mutation"
+           },
+           {
+             "fieldName": "updateTagList",
+             "apiReqType": "UPDATE",
+             "graphqlOpType": "Mutation"
+           },
+           {
+             "fieldName": "deleteTagList",
+             "apiReqType": "DELETE",
+             "graphqlOpType": "Mutation"
+           }
+         ]
+       },
+       {
+         "tableName": "staffListTable",
+         "streamViewType": "NEW_AND_OLD_IMAGES",
+         "category": "staffList",
+         "apiOperations": [
+           {
+             "fieldName": "getStaffList",
+             "apiReqType": "GET",
+             "graphqlOpType": "Query"
+           },
+           {
+             "fieldName": "listStaffList",
+             "apiReqType": "LIST",
+             "graphqlOpType": "Query"
+           },
+           {
+             "fieldName": "createStaffList",
+             "apiReqType": "CREATE",
+             "graphqlOpType": "Mutation"
+           },
+           {
+             "fieldName": "updateStaffList",
+             "apiReqType": "UPDATE",
+             "graphqlOpType": "Mutation"
+           },
+           {
+             "fieldName": "deleteStaffList",
+             "apiReqType": "DELETE",
+             "graphqlOpType": "Mutation"
+           }
+         ]
+       },
+       {
+        "tableName": "placeholderClaudeTable",
+        "category": "claude",
+        "streamViewType": "NEW_AND_OLD_IMAGES",
+        "apiOperations": [
+          {
+            "fieldName": "invokeClaudeAnalysis",
+            "apiReqType": "CLAUDE",
+            "graphqlOpType": "Mutation"
+          }
+        ]
+      }
+
+    ],
+    "cognito":{
+       "PoolName":"userpool",
+       "stdAttr": {
+         "fullname": {
+           "mutable": true,
+           "required": false
+         },
+         "givenName": {
+           "mutable": true,
+           "required": false
+         },
+         "familyName": {
+           "mutable": true,
+           "required": false
+         },
+         "middleName": {
+           "mutable": true,
+           "required": false
+         },
+         "nickname": {
+           "mutable": true,
+           "required": false
+         },
+         "preferredUsername": {
+           "mutable": true,
+           "required": true
+         },
+         "profilePage": {
+           "mutable": true,
+           "required": false
+         },
+         "profilePicture": {
+           "mutable": true,
+           "required": false
+         },
+         "website": {
+           "mutable": true,
+           "required": false
+         },
+         "email": {
+           "mutable": true,
+           "required": true
+         },
+         "gender": {
+           "mutable": true,
+           "required": false
+         },
+         "birthdate": {
+           "mutable": true,
+           "required": false
+         },
+         "timezone": {
+           "mutable": true,
+           "required": true
+         },
+         "phoneNumber": {
+           "mutable": true,
+           "required": false
+         },
+         "address": {
+           "mutable": true,
+           "required": false
+         }
+       }
+    }
+ }

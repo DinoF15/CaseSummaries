@@ -1,0 +1,351 @@
+@import '../../colours.modules.scss';
+
+/* Main Container */
+.claudeContainer {
+  width: 100%;
+  max-width: 90%; // Use a percentage of the viewport width
+  margin: 2% auto;
+  border-radius: 2%;
+  box-shadow: 0 0.9375rem 3.125rem rgba(0, 0, 0, 0.1); // rem is acceptable for shadows
+  background-color: white;
+  border: 0.1rem solid #e6e8eb; // using rem instead of px
+  overflow: hidden;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* Let the height be fluid (content-determined) */
+  min-height: auto;
+}
+
+/* Header */
+.claudeHeader {
+  padding: 2% 4%; // fluid padding percentages
+  background-color: #211f20;
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.claudeHeader h2 {
+  color: white;
+  margin: 0;
+  font-weight: 600;
+  font-size: 150%; // relative font size (150% of the parent)
+}
+
+/* Header Controls */
+.headerControls {
+  display: flex;
+  align-items: center;
+  gap: 1.5%;
+}
+
+.modelSelection,
+.togglePrediction {
+  display: flex;
+  align-items: center;
+  gap: 0.75%;
+}
+
+.radioLabel,
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5%;
+  font-weight: 500;
+  color: #f4f4f4;
+  transition: color 0.3s ease;
+}
+
+.radioLabel input[type="radio"],
+.toggleLabel input[type="checkbox"] {
+  appearance: none;
+  width: 1.25rem; // using rem is acceptable for form controls
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 0.125rem solid #990034;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.radioLabel input[type="radio"]:checked,
+.toggleLabel input[type="checkbox"]:checked {
+  border-color: #ff3366;
+}
+
+.radioLabel input[type="radio"]:checked::after,
+.toggleLabel input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background-color: #ff3366;
+}
+
+/* Chat Layout */
+.chatWrapper {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+/* Cached Prompts Sidebar */
+.cachedPrompts {
+  width: 100%;
+  max-width: 25%; // 25% of container width
+  background-color: #990034;
+  padding: 2%;
+  border-right: 0.1rem solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.cachedPrompts h3 {
+  color: white;
+  margin-bottom: 2%;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.0625rem;
+}
+
+.cachedPromptBtn {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2%;
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 0.1rem solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.cachedPromptBtn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-0.2%);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+/* Messages Container */
+.messagesContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2%;
+  background-color: #f9fafb;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Message Styles */
+.message {
+  margin-bottom: 1%;
+  padding: 1%;
+  border-radius: 1%;
+  max-width: 80%;
+  line-height: 1.6;
+  font-size: 0.95rem; // using rem is acceptable for font-size
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.05);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.message.user {
+  background-color: #f0f4f8;
+  align-self: flex-end;
+  margin-left: auto;
+  color: #2c3e50;
+}
+
+.message.assistant {
+  background-color: #e6f2ff;
+  align-self: flex-start;
+  color: #2c3e50;
+}
+
+/* Input Area */
+.inputArea {
+  display: flex;
+  padding: 2%;
+  background-color: white;
+  border-top: 0.1rem solid #e0e4e8;
+  gap: 1%;
+}
+
+.inputArea textarea {
+  flex-grow: 1;
+  border: 0.125rem solid #e0e4e8;
+  border-radius: 0.5rem;
+  padding: 1%;
+  resize: none;
+  font-size: 0.95rem;
+  min-height: 7.5%;
+  transition: border-color 0.3s ease;
+}
+
+.inputArea textarea:focus {
+  outline: none;
+  border-color: #990034;
+}
+
+.inputArea button {
+  background-color: #ff9a32;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1% 2%;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.0625rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(255, 154, 50, 0.3);
+}
+
+.inputArea button:hover {
+  background-color: #ff7f00;
+  transform: translateY(-0.2%);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(255, 154, 50, 0.4);
+}
+
+.inputArea button:disabled {
+  background-color: #ffc486;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Loading Overlay */
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loadingContainer {
+  background-color: white;
+  padding: 2%;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingSpinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.1875rem solid #f3f3f3;
+  border-top: 0.1875rem solid #990034;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Predictions Dropdown */
+.predictions {
+  background-color: white;
+  border-top: 0.125rem solid #e0e4e8;
+}
+
+.predictionItem {
+  padding: 1%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.predictionItem:hover {
+  background-color: #f0f4f8;
+}
+
+/* Code Blocks */
+.message pre {
+  background-color: #f6f8fa;
+  padding: 1%;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin: 0.625rem 0;
+}
+
+.message code {
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9em;
+}
+
+/* Lists */
+.message ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.625rem 0;
+}
+
+.message li {
+  margin: 0.3125rem 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .claudeContainer {
+    max-width: 100%;
+    margin: 1% auto;
+    border-radius: 1%;
+  }
+
+  .claudeHeader {
+    flex-direction: column;
+    padding: 2% 3%;
+    text-align: center;
+  }
+
+  .headerControls {
+    gap: 1%;
+    margin-top: 1%;
+  }
+
+  .cachedPrompts {
+    max-width: 100%;
+    width: 100%;
+    padding: 2%;
+  }
+
+  .chatWrapper {
+    flex-direction: column;
+  }
+
+  .messages {
+    padding: 2%;
+  }
+
+  .inputArea {
+    padding: 2%;
+  }
+}
