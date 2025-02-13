@@ -1,50 +1,61 @@
-# Reporting Dashboard
+# CaseSummaries Dashboard
 
-A modern web-based reporting dashboard for managing and analyzing project reports. This application provides an intuitive interface for creating, viewing, editing, and exporting detailed reports. It also integrates a custom AI assistant model ("Claude") to provide additional insights and assistance.
+[![CI/CD](https://github.com/DinoF15/CaseSummaries/actions/workflows/pipeline.yaml/badge.svg)](https://github.com/DinoF15/CaseSummaries/actions/workflows/pipeline.yaml)
+
+The **CaseSummaries Dashboard** is a full‑stack reporting and analytics application that allows users to create, view, edit, and export detailed project reports. Built with a modern front‑end framework and AWS services, the dashboard provides real‑time updates, advanced filtering, and integration with a custom AI assistant ("Claude") for enhanced insights.
 
 ## Features
 
-- **Report Management**  
-  Create, view, edit, and delete project reports with ease.
+- **Report Management**
+  - Create, update, and delete project reports.
+  - Multi‑step forms for comprehensive report details.
+  - Export reports to DOCX and PDF formats.
+  
+- **Advanced Filtering & Search**
+  - Filter reports by funding source, year, and partner type.
+  - Global search functionality for quick report lookup.
 
-- **Export Functionality**  
-  Export reports to DOCX and PDF formats with a single click.
+- **AI Assistance**
+  - Integrated "Claude" AI model provides context-aware insights and suggestions.
 
-- **Advanced Filtering & Search**  
-  Filter reports by funding source, project year, partner type, and more.
+- **Real‑Time Data & Cloud Integration**
+  - Uses AWS Amplify, AppSync, and DynamoDB for real‑time data synchronization.
+  - Secure authentication via AWS Cognito.
 
-- **AI Assistance**  
-  Utilize the "Claude" AI assistant for enhanced report insights and contextual help.
-
-- **Real-Time Data Updates**  
-  Built with AWS Amplify and AppSync, the dashboard supports real-time updates.
-
-- **Responsive & Modern Design**  
-  A fully responsive UI built with React, Next.js, and SCSS that works seamlessly on all devices.
+- **Responsive & Modern UI**
+  - Fully responsive design that adapts to desktops, tablets, and mobile devices.
+  - Clean, intuitive interface with modern styling.
 
 ## Technology Stack
 
-- **Frontend:**  
-  React, Next.js, TypeScript, React Query, React Table, SCSS
-
-- **Backend:**  
-  AWS Amplify, AWS AppSync (GraphQL), AWS Lambda, DynamoDB
-
+- **Front-End:**  
+  React, Next.js, React Query, React Table, React Quill
+- **Back-End:**  
+  AWS Amplify, AppSync, Lambda, DynamoDB
 - **CI/CD:**  
-  GitHub Actions, AWS CodePipeline (for automated builds and deployments)
+  AWS CodePipeline, AWS CDK
+- **Styling:**  
+  SCSS Modules
 
-## Setup and Installation
+
+## Getting Started
 
 ### Prerequisites
 
-- **Node.js** (>= 18.17.0)
-- **npm** (latest version)
-- **AWS CLI** (configured with appropriate credentials)
-- **Git**
+- **Node.js**: Ensure you have Node.js (v18.17.0 or later) installed.
+- **npm**: Use the latest version of npm to manage dependencies.
+- **AWS Credentials**: Configure your AWS credentials and settings in the `aws-exports.js` (or `.ts`) file in the root directory.
 
-### Installation Steps
+### Cloning the Repository
 
-1. **Clone the repository:**
+Follow these steps to clone the repository and set up the project on your local machine:
+
+1. **Open your terminal.**
+
+2. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/DinoF15/CaseSummaries.git
+   cd CaseSummaries
+   npm install
+
