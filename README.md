@@ -56,6 +56,19 @@ Follow these steps to clone the repository and set up the project on your local 
 
    ```bash
    git clone https://github.com/DinoF15/CaseSummaries.git
+   ```
+
+   ``` bash
    cd CaseSummaries
+
+   ```
+
+   ```bash
    npm install
+
+   ```
+
+```bash
+   npm run dev
+```
 
